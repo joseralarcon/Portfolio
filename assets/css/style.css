@@ -21,7 +21,7 @@ body {
 
 .menu {
   display: grid;
-  padding: 1em;
+  padding: var(--menu-padding);
   grid-template-columns: var(--menu-template);
   background-color: var(--menu-background);
   color: var(--menu-color);
@@ -30,16 +30,19 @@ body {
 .menu__items {
   display: grid;
   grid-template-columns: var(--menu-items-template);
+  column-gap: 0.5em;
   text-align: center;
   text-transform: uppercase;
 }
 
-.menu__logo,
-.menu__item {
-  padding: var(--menu-padding);
+.menu__logo {
+  display: flex;
+  align-items: center;
 }
 
 .menu__link {
+  display: block;
+  padding: var(--menu-padding);
   text-decoration: none;
   color: var(--menu-color);
 }
