@@ -1,3 +1,12 @@
+let header = document.querySelector('nav');
+
+window.addEventListener('scroll', function(){
+  if (!window.matchMedia("(max-width: 768px)").matches) {
+    /* The viewport is not less than, or equal to, 768 pixels wide */
+    header.classList.toggle('sticky', window.scrollY>0);
+  }
+});
+
 selector('.menu').addEventListener('click', function(){
   // this.classList.toggle('open');
   // document.querySelector("nav").style.display = "flex";
@@ -22,8 +31,8 @@ window.onload = function(){
 let resizeTimer;
 window.addEventListener("resize", () => {
   var width = window.innerWidth;
-  console.log(width);
   if(width <= 768){
+    header.classList.remove('sticky');
     document.body.classList.add("resize-animation-stopper");
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
