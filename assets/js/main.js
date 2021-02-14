@@ -7,17 +7,17 @@ window.addEventListener('scroll', function(){
   }
 });
 
-selector('.menu').addEventListener('click', function(){
+selector('.header__menu').addEventListener('click', function(){
   // this.classList.toggle('open');
   // document.querySelector("nav").style.display = "flex";
   // document.querySelector("nav").style.transform = "rotateY(180deg)";
-  selector('header').classList.toggle('open');
-  selector('.overlay').classList.toggle('open');
+  selector('.header').classList.toggle('open');
+  selector('.header__overlay').classList.toggle('open');
 });
 
-selector('.overlay').addEventListener('click', function(){
-  selector('header').classList.toggle('open');
-  selector('.overlay').classList.toggle('open');
+selector('.header__overlay').addEventListener('click', function(){
+  selector('.header').classList.toggle('open');
+  selector('.header__overlay').classList.toggle('open');
 });
 
 function selector(s){
@@ -25,7 +25,7 @@ function selector(s){
 }
 
 window.onload = function(){
-  document.querySelector('body').classList.remove('preload');
+  selector('body').classList.remove('preload');
 }
 
 let resizeTimer;
