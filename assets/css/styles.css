@@ -39,7 +39,7 @@ body {
   animation: none !important;
 }
 
-.presentation {
+.content__section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,11 +52,11 @@ body {
   color: var(--primary-color);
 }
 
-.presentation__social i {
+.content__social i {
   color: var(--primary-color);
 }
 
-.presentation__social {
+.content__social {
   display: grid;
   column-gap: 0.5em;
   grid-template-columns: 1fr 1fr;
