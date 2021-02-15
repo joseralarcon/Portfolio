@@ -4,7 +4,7 @@
   --font-family: "Montserrat";
 
   --header-height: 6vh;
-  --header-overlay-background-color: rgba(0, 0, 0, 0.85);
+  --header-overlay-background-color: rgba(13, 16, 22, 0.85);
   --header-nav-background-color: #fff;
   --header-link-after-background-color: #4f735f;
   --header-bars-background-color: #4f735f;
@@ -12,6 +12,12 @@
 
   --primary-background-color: #1f2430;
   --primary-color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+  :root {
+    --header-nav-background-color: #191e2a;
+  }
 }
 
 html {
@@ -27,7 +33,7 @@ html {
 }
 
 body {
-  font-family: "Montserrat";
+  font-family: var(--font-family);
 }
 
 .preload * {
@@ -248,5 +254,10 @@ body {
   .header__overlay.open {
     opacity: 1;
     transform: scaleX(1);
+  }
+
+  .header__logo,
+  .header__link {
+    color: var(--primary-color);
   }
 }
