@@ -17,6 +17,7 @@ selector('.header__overlay').addEventListener('click', function(){
 
 function openMenu(){
   selector('.header').classList.toggle('open');
+  selector('.content').classList.toggle('open');
   selector('.header__overlay').classList.toggle('open');
 }
 
