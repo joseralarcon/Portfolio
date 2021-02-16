@@ -20,9 +20,9 @@
   }
 }
 
-html {
+/* html {
   font-size: 10px;
-}
+} */
 
 *,
 *::before,
@@ -53,7 +53,6 @@ body {
   width: 100%;
   min-height: 100vh;
   padding-top: var(--header-height);
-  font-size: 24px;
   background-color: var(--primary-background-color);
   color: var(--primary-color);
 }
@@ -81,6 +80,7 @@ body {
   position: fixed;
   width: 100%;
   height: var(--header-height);
+  min-height: 60px;
   justify-content: space-evenly;
   text-transform: uppercase;
   background-color: var(--header-nav-background-color);
@@ -101,8 +101,8 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  padding: 0 0.5em;
-  font-size: 1.5rem;
+  padding: 0 8px;
+  font-size: 16px;
 }
 
 .header__link {
@@ -194,9 +194,9 @@ body {
 
   .header__bars {
     position: fixed;
-    padding: 2rem 2.5rem;
-    top: 1em;
-    right: 1em;
+    padding: 26px 28px;
+    top: 15px;
+    right: 15px;
     background-color: var(--header-bars-background-color);
     z-index: 1;
     border-radius: 3px;
@@ -208,7 +208,7 @@ body {
   .header__bar::after {
     position: absolute;
     content: "";
-    width: 2rem;
+    width: 24px;
     height: 2px;
     background-color: var(--header-bars-color);
     top: 0;
@@ -220,11 +220,11 @@ body {
   }
 
   .header__bar::before {
-    top: -2rem;
+    top: -26px;
   }
 
   .header__bar::after {
-    top: 2rem;
+    top: 26px;
   }
 
   .open .header__overlay {
