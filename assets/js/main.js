@@ -11,19 +11,16 @@ const mediaQueryList = window.matchMedia('(max-width: 768px)');
 const headerLinks = document.querySelectorAll('.header__a');
 
 if(mediaQueryList.matches) {
-  //Add event listener
-  // console.log('Window is less than or equal to 768px on initial. Add event listener');
+  //Add event listener. Window is less than or equal to 768px on initial.
   addEventLinks();
 }
 
 mediaQueryList.addEventListener('change', event => {
   if (event.matches) {
-    //Add event listener
-    // console.log('Window is less than or equal to 768px on change. Add event listener');
+    //Add event listener. Window is less than or equal to 768px on change.
     addEventLinks();
   }else{
-    //Remove event listener
-    // console.log('Window is above than or equal to 768px on change. Remove event listener');
+    //Remove event listener. Window is above than or equal to 768px on change.;
     removeEventLinks();
   }
 })
