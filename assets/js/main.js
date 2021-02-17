@@ -7,13 +7,43 @@
 //   }
 // });
 
-selector('.header__bars').addEventListener('click', function(){
-  openMenu();
-});
+const mediaQueryList = window.matchMedia('(max-width: 768px)');
+const headerLinks = document.querySelectorAll('.header__a');
 
-selector('.header__overlay').addEventListener('click', function(){
-  openMenu();
-});
+if(mediaQueryList.matches) {
+  //Add event listener
+  // console.log('Window is less than or equal to 768px on initial. Add event listener');
+  addEventLinks();
+}
+
+mediaQueryList.addEventListener('change', event => {
+  if (event.matches) {
+    //Add event listener
+    // console.log('Window is less than or equal to 768px on change. Add event listener');
+    addEventLinks();
+  }else{
+    //Remove event listener
+    // console.log('Window is above than or equal to 768px on change. Remove event listener');
+    removeEventLinks();
+  }
+})
+
+selector('.header__bars').addEventListener('click', openMenu);
+
+selector('.header__overlay').addEventListener('click', openMenu);
+
+function addEventLinks(){
+  headerLinks.forEach(link => {
+    link.addEventListener('click', openMenu);
+  });
+  banderaListenerHeaderLink = true;
+}
+
+function removeEventLinks(){
+  headerLinks.forEach(link => {
+    link.removeEventListener('click', openMenu);
+  });
+}
 
 function openMenu(){
   selector('.header').classList.toggle('open');
@@ -28,9 +58,11 @@ window.onload = function(){
 }
 
 let resizeTimer;
+let bandera = false;
 window.addEventListener("resize", () => {
   let width = window.innerWidth;
   if(width <= 768){
+    bandera = true;
     // header.classList.remove('sticky');
     document.body.classList.add("resize-animation-stopper");
     clearTimeout(resizeTimer);
