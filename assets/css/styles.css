@@ -74,6 +74,10 @@ body {
   display: inline-block;
 }
 
+.header__nav.sticky{
+  background-color: lightslategray;
+}
+
 .effect-wrap .effect {
   position: absolute;
   z-index: -1;
@@ -177,6 +181,17 @@ body {
   }
   50% {
     transform: translateX(25px);
+  }
+}
+
+@keyframes fadeInTop{
+  0%{
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  100%{
+    opacity: 1; 
+    transform: translateY(0px);
   }
 }
 
@@ -353,9 +368,183 @@ body {
 .about__section .about__img img {
   display: block;
   width: 100%;
-  border-radius: 50%;
+  height: 40vh;
+  max-height: 400px;
   border: 10px solid transparent;
 }
+
+.social__links{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.social__links a{
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  text-align: center;
+  color: #fff;
+}
+
+.social__links a:hover i{
+  font-weight: bold;
+  color: lightsalmon;
+}
+
+.about__section .about__tabs{
+  padding: 60px 15px 50px;
+  text-align: center;
+}
+
+.about__section .about__tabs .about__tab-item{
+  /* display: inline-block; */
+  margin: 0 5px 10px;
+  border: 1px solid lightgrey;
+  padding: 5px 10px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.about__section .about__tabs .about__tab-item:hover:not(.active){
+  opacity: 0.5;
+}
+
+.about__section .about__tabs .about__tab-item.active{
+  color: lightsalmon;
+}
+
+.about__section .tab-content{
+  display: none;
+}
+
+.about__section .tab-content.active{
+  display: block;
+  animation: fadeInTop 0.5s ease;
+}
+
+.about_skill-item *{
+  display: inline-block;
+  font-size: 24px;
+}
+
+.about__skills .about__row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2em;
+  row-gap: 1em;
+  padding-bottom: 80px;
+}
+
+.about__skills .about__row div:nth-child(odd){
+  text-align: end;
+}
+
+.about__section .experience,
+.about__section .education{
+  padding-bottom: 80px;
+}
+
+.experience__timeline-item:nth-child(odd){
+  padding-right: calc(50% + 50px);
+  text-align: right;
+}
+
+.experience__timeline-item:nth-child(even){
+  padding-left: calc(50% + 50px);
+}
+
+.about__section .experience__timeline .timeline-item.inner{
+  padding: 30px;
+  border: 1px solid lightsalmon;
+  border-radius: 5px;
+  position: relative;
+}
+
+.about__section .experience__timeline .timeline-item.inner:before{
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 1px;
+  /* background-color: red; */
+  top: 50px;
+}
+
+.experience__timeline-item:nth-child(odd) .timeline-item.inner:before{
+  background-color: red;
+  right: -30px;
+}
+
+.experience__timeline-item:nth-child(even) .timeline-item.inner:before{
+  background-color: yellow;
+  left: -30px;
+}
+
+.experience__timeline{
+  position: relative;
+}
+
+.experience__timeline:before{
+  content: "";
+  width: 1px;
+  left: 50%;
+  height: 100%;
+  position: absolute;
+  background-color: lightslategray;
+}
+
+.about__section .experience__timeline .timeline-item.inner .icon{
+  position: absolute;
+  text-align: center;
+  line-height: 40px;
+  width: 40px;
+  height: 40px;
+  background-color: lightgreen;
+  color: black;
+  border: 1px solid lightsalmon;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.experience__timeline-item:nth-child(odd) .icon{
+  right: -70px;
+}
+
+.experience__timeline-item:nth-child(even) .icon{
+  left: -70px;
+}
+
+.about__section .experience__timeline .timeline-item.inner span{
+  display: block;
+  font-weight: 500;
+  color: lightsteelblue;
+  margin: 0 0 10px;
+}
+
+.about__section .experience__timeline .timeline-item.inner h3{
+  font-size: 20px;
+  color: lightcoral;
+  font-weight: 600;
+  margin: 0 0 5px;
+}
+
+.about__section .experience__timeline .timeline-item.inner h4{
+  font-size: 16px;
+  font-style: italic;
+  color: lightgreen;
+}
+
+.about__section .experience__timeline .timeline-item.inner p{
+  line-height: 26px;
+  margin: 15px 0 0;
+}
+/* 
+.experience__timeline-item:nth-child(odd) icon{
+
+  right: -70px;
+} */
 
 @media only screen and (min-width: 769px) {
   /* .header__link:hover {
@@ -365,11 +554,6 @@ body {
   .header__menu{
     display: flex;
     justify-content: center;
-  }
-  
-  .header__nav{
-    max-width: var(--max-width-page);
-    justify-content: space-between;
   }
 
   .header__link:hover{
